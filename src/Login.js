@@ -1,5 +1,6 @@
 import React from 'react';
 import img1 from './Images/logo.png';
+import { Link } from 'react-router-dom';
 
 function Login(){
     return(
@@ -65,7 +66,7 @@ function Login(){
               color: #fff;
               text-align: center;
               padding: 2px 0;
-              font-size: 10px;
+              font-size: 9px;
             }
           `}
         </style>
@@ -73,18 +74,18 @@ function Login(){
       <body>
         <div className="container">
           <div className="logo">
-            <img src={img1} alt="Logo" />
+            <img src={img1} alt="Logo" style={{ userSelect: 'none', cursor: 'text' }} />
           </div>
-          <form action="#" method="POST">
-            <label htmlFor="username">Username</label>
+          <form action="home" method="GET">
+          <label htmlFor="username" style={{ fontFamily: 'Arial, sans-serif', fontSize: '14px' }}>Username</label>
             <input type="text" id="username" placeholder="Enter your username" required />
-            <label htmlFor="password">Password</label>
+            <label htmlFor="username" style={{ fontFamily: 'Arial, sans-serif', fontSize: '14px' }}>Password</label>
             <input type="password" id="password" placeholder="Enter your password" required />
             <input type="submit" value="Sign In" />
           </form>
           <div className="new-user">
-            <p>New User? <a href="#">Sign Up</a></p>
-            <p>Forgot Password? <a href="#">Reset Password</a></p>
+            <p style={{ fontFamily: 'Arial, sans-serif', fontSize: '14px' }}>New User? <a href="#">Sign Up</a></p>
+            <p style={{ fontFamily: 'Arial, sans-serif', fontSize: '14px' }}>Forgot Password? <a href="#">Reset Password</a></p>
           </div>
         </div>
         <footer>
@@ -102,7 +103,7 @@ function Login(){
     </html>
 
 )
-    
+
 }
 
 export default Login;
