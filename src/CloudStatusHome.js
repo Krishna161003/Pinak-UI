@@ -297,8 +297,10 @@ function CloudStatusHome() {
               fontSize: "16px",
               marginLeft: "30px",
               cursor: "pointer",
-              backgroundColor: "#5ced73",
-              marginTop: "30px"
+              backgroundColor: "#90ee90",
+              marginTop: "30px",
+              borderRadius: "5px",
+              fontWeight: "bold"
             }}
             value={selectedOption}
             onChange={handleDropdownChange}
@@ -314,7 +316,9 @@ function CloudStatusHome() {
               flexDirection: "column",
               alignItems: "flex-start",
               marginLeft: "20px",
-              marginTop: "11px"
+              marginTop: "11px",
+              borderRadius: "5px",
+              fontWeight: "bold"
             }}
           >
             <button
@@ -331,7 +335,9 @@ function CloudStatusHome() {
                 color: "#ffffff",
                 border: "none",
                 cursor: "pointer",
-                width: "200px"
+                width: "200px",
+                borderRadius: "5px",
+                fontWeight: "bold"
               }}
               onClick={() => handleButtonClick(1)}
             >
@@ -351,7 +357,9 @@ function CloudStatusHome() {
                 color: "#ffffff",
                 border: "none",
                 cursor: "pointer",
-                width: "200px"
+                width: "200px",
+                borderRadius: "5px",
+                fontWeight: "bold"
               }}
               onClick={() => handleButtonClick(2)}
             >
@@ -371,7 +379,9 @@ function CloudStatusHome() {
                 color: "#ffffff",
                 border: "none",
                 cursor: "pointer",
-                width: "200px"
+                width: "200px",
+                borderRadius: "5px",
+                fontWeight: "bold"
               }}
               onClick={() => handleButtonClick(3)}
             >
