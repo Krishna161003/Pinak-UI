@@ -211,7 +211,7 @@ export default function Dashboard() {
             </ListItemIcon>
             <ListItemText primary="Dashboard" />
           </ListItemLink>
-          <ListItemLink href="/">
+          <ListItemLink href="/cloudstatushome">
             <ListItemIcon>
               <CloudIcon />
             </ListItemIcon>
