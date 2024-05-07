@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -6,7 +6,6 @@ import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import './App.css';
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
@@ -30,35 +29,33 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Migration from "@material-ui/icons/Flight"
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import Service from "@material-ui/icons/Help"
+// import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PeopleIcon from "@material-ui/icons/People";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import Code from "@material-ui/icons/Code";
+import LayersIcon from "@material-ui/icons/Layers";
+import AssignmentIcon from "@material-ui/icons/Assignment";
 import { Flight, Help } from "@material-ui/icons";
-import "@fontsource/open-sans"; // Defaults to weight 400
-import "@fontsource/open-sans/400.css"; // Specify weight
-import "@fontsource/open-sans/400-italic.css"; // Specify weight and style
-
 
 function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
-
-function Copyright() {
-  const classes = useStyles();
-  return (
-    <Container className={classes.footer}>
-      <Typography variant="body2" color="textSecondary" align="center">
-        {"Copyright © "}
-        <Link color="inherit" href="https://pinakastra.com">
-        <b>Turn-Key Cloud Platform for Academia, Research & Enterprises</b>
-        </Link>{" "}
-        {new Date().getFullYear()}
-        {"."}
-      </Typography>
-    </Container>
-  );
-}
-
+    return <ListItem button component="a" {...props} />;
+  }
+  
+  function Copyright() {
+    const classes = useStyles();
+    return (
+      <Container className={classes.footer}>
+        <Typography variant="body2" color="textSecondary" align="center">
+          {"Copyright © "}
+          <Link color="inherit" href="https://pinakastra.com">
+          <b>Turn-Key Cloud Platform for Academia, Research & Enterprises</b>
+          </Link>{" "}
+          {new Date().getFullYear()}
+          {"."}
+        </Typography>
+      </Container>
+    );
+  }
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -141,23 +138,35 @@ const useStyles = makeStyles((theme) => ({
     height: 240,
   },
   footer: {
-    padding: theme.spacing(-0),
+    padding: theme.spacing(-10),
     marginTop: "auto",
-    // backgroundColor: "white",
     alignSelf: "flex-end",
   },
 }));
 
-export default function Home() {
+function CloudStatusHome() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
-  const handleDrawerOpen = () => {
+  const [open, setOpen] = useState(true);
+  const [selectedOption, setSelectedOption] = useState("Option 1");
+
+  function handleDrawerOpen() {
     setOpen(true);
-  };
-  const handleDrawerClose = () => {
+  }
+
+  function handleDrawerClose() {
     setOpen(false);
-  };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  }
+
+  function handleDropdownChange(event) {
+    setSelectedOption(event.target.value);
+    console.log("Selected option:", event.target.value);
+    // You can perform any action based on the selected option here
+  }
+
+  function handleButtonClick(button) {
+    console.log(`Button ${button} clicked`);
+    // Add your action for the clicked button here
+  }
 
   return (
     <div className={classes.root}>
@@ -183,13 +192,8 @@ export default function Home() {
             noWrap
             className={classes.title}
           >
-            Home
+            Cloud Status Home
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={0} color="secondary">
-              {/* <NotificationsIcon /> */}
-            </Badge>
-          </IconButton>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -206,7 +210,7 @@ export default function Home() {
         </div>
         <Divider />
         <List>
-          <ListItemLink href="/dashboard">
+        <ListItemLink href="/dashboard">
             <ListItemIcon>
               <DashboardIcon />
             </ListItemIcon>
@@ -285,10 +289,110 @@ export default function Home() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          {/* Add your content here */}
+          <select
+            id="dropdown"
+            style={{
+              width: "200px",
+              height: "40px",
+              fontSize: "16px",
+              marginLeft: "30px",
+              cursor: "pointer",
+              backgroundColor: "#90ee90",
+              marginTop: "30px",
+              borderRadius: "5px",
+              fontWeight: "bold"
+            }}
+            value={selectedOption}
+            onChange={handleDropdownChange}
+          >
+            <option value="Option 1">Region 1</option>
+            <option value="Option 2">Region 2</option>
+            <option value="Option 3">Region 3</option>
+          </select>
+          <div
+            className="container"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              marginLeft: "20px",
+              marginTop: "11px",
+              borderRadius: "5px",
+              fontWeight: "bold"
+            }}
+          >
+            <button
+              id="button1"
+              style={{
+                margin: "10px",
+                padding: "10px",
+                fontSize: "16px",
+                justifyContent: "center",
+                alignItems: "center",
+                display: "block",
+                width: "fit-content",
+                backgroundColor: "#3995f8",
+                color: "#ffffff",
+                border: "none",
+                cursor: "pointer",
+                width: "200px",
+                borderRadius: "5px",
+                fontWeight: "bold"
+              }}
+              onClick={() => handleButtonClick(1)}
+            >
+              Service status
+            </button>
+            <button
+              id="button2"
+              style={{
+                margin: "10px",
+                padding: "10px",
+                fontSize: "16px",
+                justifyContent: "center",
+                alignItems: "center",
+                display: "block",
+                width: "fit-content",
+                backgroundColor: "#3995f8",
+                color: "#ffffff",
+                border: "none",
+                cursor: "pointer",
+                width: "200px",
+                borderRadius: "5px",
+                fontWeight: "bold"
+              }}
+              onClick={() => handleButtonClick(2)}
+            >
+              Events
+            </button>
+            <button
+              id="button3"
+              style={{
+                margin: "10px",
+                padding: "10px",
+                fontSize: "16px",
+                justifyContent: "center",
+                alignItems: "center",
+                display: "block",
+                width: "fit-content",
+                backgroundColor: "#3995f8",
+                color: "#ffffff",
+                border: "none",
+                cursor: "pointer",
+                width: "200px",
+                borderRadius: "5px",
+                fontWeight: "bold"
+              }}
+              onClick={() => handleButtonClick(3)}
+            >
+              Alerts
+            </button>
+          </div>
         </Container>
         <Copyright />
       </main>
     </div>
   );
 }
+
+export default CloudStatusHome;
