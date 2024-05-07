@@ -6,6 +6,7 @@ import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import './App.css';
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
@@ -19,7 +20,6 @@ import CentralCloud from "@material-ui/icons/CloudCircle";
 // import CloudSync from "@material-ui/icons/CloudSync";
 import Kubernetes from "@material-ui/icons/Widgets"
 import MenuIcon from "@material-ui/icons/Menu";
-
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 // import NotificationsIcon from "@material-ui/icons/Notifications";
 import List from "@material-ui/core/List";
@@ -30,13 +30,14 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Migration from "@material-ui/icons/Flight"
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import Service from "@material-ui/icons/Help"
-// import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import PeopleIcon from "@material-ui/icons/People";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import Code from "@material-ui/icons/Code";
-import LayersIcon from "@material-ui/icons/Layers";
-import AssignmentIcon from "@material-ui/icons/Assignment";
 import { Flight, Help } from "@material-ui/icons";
+import "@fontsource/open-sans"; // Defaults to weight 400
+import "@fontsource/open-sans/400.css"; // Specify weight
+import "@fontsource/open-sans/400-italic.css"; // Specify weight and style
+
 
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
@@ -48,7 +49,7 @@ function Copyright() {
     <Container className={classes.footer}>
       <Typography variant="body2" color="textSecondary" align="center">
         {"Copyright © "}
-        <Link color="inherit" href="https://material-ui.com/">
+        <Link color="inherit" href="https://pinakastra.com">
         <b>Turn-Key Cloud Platform for Academia, Research & Enterprises</b>
         </Link>{" "}
         {new Date().getFullYear()}
@@ -140,7 +141,7 @@ const useStyles = makeStyles((theme) => ({
     height: 240,
   },
   footer: {
-    padding: theme.spacing(-10),
+    padding: theme.spacing(-0),
     marginTop: "auto",
     // backgroundColor: "white",
     alignSelf: "flex-end",
@@ -209,7 +210,7 @@ export default function Home() {
             <ListItemIcon>
               <DashboardIcon />
             </ListItemIcon>
-            <ListItemText primary="Dashboard" />
+            <ListItemText primary="Dashboard"/>
           </ListItemLink>
           <ListItemLink href="/">
             <ListItemIcon>
