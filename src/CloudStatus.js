@@ -7,7 +7,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
 import Divider from "@material-ui/core/Divider";
 import Link from "@material-ui/core/Link";
@@ -16,11 +15,9 @@ import Fault from "@material-ui/icons/Announcement";
 import Host from "@material-ui/icons/People"
 import StorageCluster from "@material-ui/icons/Storage"
 import CentralCloud from "@material-ui/icons/CloudCircle";
-// import CloudSync from "@material-ui/icons/CloudSync";
 import Kubernetes from "@material-ui/icons/Widgets"
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-// import NotificationsIcon from "@material-ui/icons/Notifications";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -29,33 +26,31 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Migration from "@material-ui/icons/Flight"
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import Service from "@material-ui/icons/Help"
-// import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import PeopleIcon from "@material-ui/icons/People";
 import BarChartIcon from "@material-ui/icons/BarChart";
 import Code from "@material-ui/icons/Code";
-import LayersIcon from "@material-ui/icons/Layers";
-import AssignmentIcon from "@material-ui/icons/Assignment";
 import { Flight, Help } from "@material-ui/icons";
+import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 
 function ListItemLink(props) {
-    return <ListItem button component="a" {...props} />;
-  }
-  
-  function Copyright() {
-    const classes = useStyles();
-    return (
-      <Container className={classes.footer}>
-        <Typography variant="body2" color="textSecondary" align="center">
-          {"Copyright © "}
-          <Link color="inherit" href="https://pinakastra.com">
+  return <ListItem button component="a" {...props} />;
+}
+
+function Copyright() {
+  const classes = useStyles();
+  return (
+    <Container className={classes.footer}>
+      <Typography variant="body2" color="textSecondary" align="center">
+        {"Copyright © "}
+        <Link color="inherit" href="https://pinakastra.com">
           <b>Turn-Key Cloud Platform for Academia, Research & Enterprises</b>
-          </Link>{" "}
-          {new Date().getFullYear()}
-          {"."}
-        </Typography>
-      </Container>
-    );
-  }
+        </Link>{" "}
+        {new Date().getFullYear()}
+        {"."}
+      </Typography>
+    </Container>
+  );
+}
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -148,6 +143,10 @@ function CloudStatusHome() {
   const classes = useStyles();
   const [open, setOpen] = useState(true);
   const [selectedOption, setSelectedOption] = useState("Option 1");
+  const [hiMessage, setHiMessage] = useState("");
+  const [showServiceTable, setShowServiceTable] = useState(false);
+  const [showEventsTable, setShowEventsTable] = useState(false);
+  const [showAlertsTable, setShowAlertsTable] = useState(false);
 
   function handleDrawerOpen() {
     setOpen(true);
@@ -164,8 +163,96 @@ function CloudStatusHome() {
   }
 
   function handleButtonClick(button) {
-    console.log(`Button ${button} clicked`);
-    // Add your action for the clicked button here
+    if (button === 1) {
+      setShowServiceTable(true);
+      setShowEventsTable(false);
+      setShowAlertsTable(false);
+      setHiMessage([
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 2", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Online" },
+        { controller: "Service 1", color: "Offline" },
+        { controller: "Service 1", color: "Online" },
+        // Add more data as needed
+      ]);
+    } else if (button === 2) {
+      setShowServiceTable(false);
+      setShowEventsTable(true);
+      setShowAlertsTable(false);
+      setHiMessage([
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 1", status: "Active" },
+        { sno: 1, description: "Event 2", status: "Inactive" },
+        { sno: 1, description: "Event 3", status: "Active" },
+        // Add more data as needed
+      ]);
+    } else if (button === 3) {
+      setShowServiceTable(false);
+      setShowEventsTable(false);
+      setShowAlertsTable(true);
+      setHiMessage([
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+        { sno: 1, description: "Alert 1", status: "Online" },
+
+        { sno: 2, description: "Alert 2", status: "Online" },
+        { sno: 3, description: "Alert 3", status: "Offline" },
+        // Add more data as needed
+      ]);
+    }
   }
 
   return (
@@ -210,7 +297,7 @@ function CloudStatusHome() {
         </div>
         <Divider />
         <List>
-        <ListItemLink href="/dashboard">
+          <ListItemLink href="/dashboard">
             <ListItemIcon>
               <DashboardIcon />
             </ListItemIcon>
@@ -282,6 +369,7 @@ function CloudStatusHome() {
             </ListItemIcon>
             <ListItemText primary="Migration" />
           </ListItemLink>
+
         </List>
         <Divider />
         {/* Add your secondary list items here */}
@@ -296,7 +384,6 @@ function CloudStatusHome() {
               <li class="breadcrumb-item active" aria-current="page">Cloud Status</li>
             </ol>
           </nav>
-
           <select
             id="dropdown"
             style={{
@@ -311,7 +398,7 @@ function CloudStatusHome() {
               marginTop: "30px",
               borderRadius: "5px",
               fontWeight: "bold",
-              border:"white",
+              border:"white"
             }}
             value={selectedOption}
             onChange={handleDropdownChange}
@@ -328,8 +415,6 @@ function CloudStatusHome() {
               alignItems: "flex-start",
               marginLeft: "20px",
               marginTop: "11px",
-              borderRadius: "5px",
-              fontWeight: "bold"
             }}
           >
             <button
@@ -381,7 +466,7 @@ function CloudStatusHome() {
               style={{
                 margin: "10px",
                 padding: "10px",
-                fontSize: "16px",
+                fontSize: "16px", 
                 justifyContent: "center",
                 alignItems: "center",
                 display: "block",
@@ -392,6 +477,7 @@ function CloudStatusHome() {
                 cursor: "pointer",
                 width: "200px",
                 borderRadius: "5px",
+                fontFamily: "Open Sans, sans-serif",
                 fontWeight: "bold"
               }}
               onClick={() => handleButtonClick(3)}
@@ -399,6 +485,70 @@ function CloudStatusHome() {
               Alerts
             </button>
           </div>
+          {showServiceTable && (
+            <TableContainer component={Paper}>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell className={classes.controllerCell}>CONTROLLER</TableCell>
+                    <TableCell>STATUS</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {hiMessage.map((item, index) => (
+                    <TableRow key={index}>
+                      <TableCell className={classes.controllerCell}>{item.controller}</TableCell>
+                      <TableCell>{item.color}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          )}
+          {showEventsTable && (
+            <TableContainer component={Paper}>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>S No.</TableCell>
+                    <TableCell>Description</TableCell>
+                    <TableCell>Status</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {hiMessage.map((item, index) => (
+                    <TableRow key={index}>
+                      <TableCell>{item.sno}</TableCell>
+                      <TableCell>{item.description}</TableCell>
+                      <TableCell>{item.status}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          )}
+          {showAlertsTable && (
+            <TableContainer component={Paper}>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>S No.</TableCell>
+                    <TableCell>Description</TableCell>
+                    <TableCell>Status</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {hiMessage.map((item, index) => (
+                    <TableRow key={index}>
+                      <TableCell>{item.sno}</TableCell>
+                      <TableCell>{item.description}</TableCell>
+                      <TableCell>{item.status}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          )}
         </Container>
         <Copyright />
       </main>

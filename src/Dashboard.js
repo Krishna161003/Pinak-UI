@@ -419,7 +419,7 @@ export default function Dashboard() {
               display: block;
               margin: auto;
               max-width:250px;
-              margin-left:35%;
+              margin-left:18%;
            }
            .table-container {
             display: flex;
