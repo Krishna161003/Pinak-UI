@@ -289,18 +289,29 @@ function CloudStatusHome() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"></link>
+          <nav >
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Cloud Status</li>
+            </ol>
+          </nav>
+
           <select
             id="dropdown"
             style={{
+              marginLeft:'100%',
+              color:"white",
               width: "200px",
               height: "40px",
               fontSize: "16px",
-              marginLeft: "30px",
+              marginLeft: "45px",
               cursor: "pointer",
-              backgroundColor: "#90ee90",
+              backgroundColor: "#4169E1",
               marginTop: "30px",
               borderRadius: "5px",
-              fontWeight: "bold"
+              fontWeight: "bold",
+              border:"white",
             }}
             value={selectedOption}
             onChange={handleDropdownChange}

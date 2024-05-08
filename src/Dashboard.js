@@ -1,4 +1,5 @@
 import React from "react";
+import Home from "./Home"
 // import { Component } from 'react';
 // import 'simple-datatables/dist/datatables.css';
 import clsx from "clsx";
@@ -432,6 +433,14 @@ export default function Dashboard() {
             `}
           </style>
           <body>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous"></link>
+          <nav >
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+            </ol>
+          </nav>
+
         <div class="container">
         <div class="table-container">
             <div>
