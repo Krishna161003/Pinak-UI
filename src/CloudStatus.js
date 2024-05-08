@@ -139,7 +139,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CloudStatusHome() {
+function CloudStatus() {
   const classes = useStyles();
   const [open, setOpen] = useState(true);
   const [selectedOption, setSelectedOption] = useState("Option 1");
@@ -303,7 +303,7 @@ function CloudStatusHome() {
             </ListItemIcon>
             <ListItemText primary="Dashboard"/>
           </ListItemLink>
-          <ListItemLink href="/cloudstatushome">
+          <ListItemLink href="/CloudStatus">
             <ListItemIcon>
               <CloudIcon />
             </ListItemIcon>
@@ -556,4 +556,4 @@ function CloudStatusHome() {
   );
 }
 
-export default CloudStatusHome;
+export default CloudStatus;
