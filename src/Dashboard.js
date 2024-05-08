@@ -150,7 +150,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Home() {
+export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -185,7 +185,7 @@ export default function Home() {
             noWrap
             className={classes.title}
           >
-            Home
+            Dashboard
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={0} color="secondary">
